@@ -1,13 +1,35 @@
-function hasTargetSum(array, target) {
-  // Write your algorithm here
-  for (const number in array){
-    if (number + number === target){
-      return true;
-  }else if (number + number !== target){
-    return false
-  }
-  }
+// optimized code
+function hasTargetSum(array,target){
+    const seenNumbers = {}
+
+    for (let i = 0; i < array.length; i++){
+      const complement = target - array[i];
+
+      if (seenNumbers[complement]) return true
+
+      seenNumbers[array[i]]=true;
+    }
+  return false;
 }
+
+// unoptimized code
+
+// function hasTargetSum(array, target) {
+//   // Write your algorithm here
+
+//   // iterate thru' the array
+//   for (let i =0; i<array.length; i++){
+//     // identify the complement
+//     const complement = target-array[i];
+//     // loop thru the rest of the array
+//     for (let a = i+1; a < array.length; a++){
+//       if (array[a] === complement)
+//         return true;
+//     }
+//   }
+  
+// return false;
+// }
 
 /* 
   Write the Big O time complexity of your function here
