@@ -1,5 +1,12 @@
 function hasTargetSum(array, target) {
   // Write your algorithm here
+  for (const number in array){
+    if (number + number === target){
+      return true;
+  }else if (number + number !== target){
+    return false
+  }
+  }
 }
 
 /* 
